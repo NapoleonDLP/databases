@@ -22,6 +22,8 @@ app.use(parser.json());
 app.use('/classes', router);
 
 // Serve the client files
+// app.use(express.static(__dirname + '/../client/hrr39-chatterbocx-client/client'));
+
 app.use(express.static(__dirname + '/../client'));
 
 // If we are being run directly, run the server.
