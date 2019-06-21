@@ -5,16 +5,10 @@ module.exports = {
     get: function (req, res) {
       //handle req dispatch to models => models => database
 
-      //pass in req body = message coming from client?
-      //messages {
-      //username
-      //roomname
-      //message
-      //}
       console.log('****************');
       console.log(req);
 
-      models.messages.get('/messages', (err, messages) =>{
+      models.messages.get('/messages', (err, messages) => {
 
         //checks if there is an error coming from models
         if (err) {
@@ -28,9 +22,19 @@ module.exports = {
 
         }
       });
-      // }
     }, // a function which handles a get request for all messages
-    post: function (req, res) {} // a function which handles posting a message to the database
+
+    post: function (req, res) {
+      // if (err) {
+      //   res.send();
+      // } else {
+      models.messages.post('/messages', (err, messages) => {
+        if (err) { res.send(err); }
+
+        res.send(201);
+      });
+      // }
+    } // a function which handles posting a message to the database
   },
 
 
